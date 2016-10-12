@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^15.1.0"
+    "hapi": "^15.1.0",
+    "node-fetch": "^1.6.3",
+    "request": "^2.75.0"
   }
 }

@@ -1,5 +1,5 @@
 const Hapi = require('hapi');
-const yApi = require('./src/yahooApi');
+const api = require('./src/yahooApi');
 
 function runServer(){
   const server = new Hapi.Server();
@@ -7,9 +7,12 @@ function runServer(){
   let data = {};
   let counter = 0;
 
+  // api.fetchAuthData();
+  api.requestAuthData();
+
   setInterval(function(){
     counter = counter + 1;
-    data = yApi.getYahooData();
+    data = api.getYahooData();
   }, 2000)
 
   server.connection({
@@ -30,7 +33,6 @@ function runServer(){
 
   server.start((err) => {
     if(err) throw err;
-
     console.log('Server running at:', server.info.uri);
   });
 }
